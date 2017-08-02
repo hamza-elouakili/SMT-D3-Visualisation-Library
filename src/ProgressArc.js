@@ -6,9 +6,24 @@ class ProgressArc extends Component {
   // displayName: "ProgressArc"
 
   componentDidMount() {
+    this.drawArc()
+  }
+
+  componentDidUpdate() {
+    this.redrawArc()
+  }
+
+  drawArc() {
     const context = this.setContext()
     this.setBackground(context)
     this.setForeground(context)
+    this.updatePercent(context)
+  }
+
+  redrawArc() {
+    const context = d3.select(`#${this.props.id}`)
+    context.remove()
+    this.drawArc()
   }
 
   setBackground(context) {
@@ -20,11 +35,32 @@ class ProgressArc extends Component {
   }
 
   setForeground(context) {
-    return context
-      .append('path')
-      .datum({ endAngle: this.tau * this.props.percentComplete })
-      .style('fill', this.props.foregroundColor)
-      .attr('d', this.arc())
+    return (
+      context
+        .append('path')
+        // .datum({ endAngle: this.tau * this.props.percentComplete })
+        .datum({ endAngle: 0 })
+        .style('fill', this.props.foregroundColor)
+        .attr('d', this.arc())
+    )
+  }
+
+  updatePercent(context) {
+    return this.setForeground(context)
+      .transition()
+      .duration(this.props.duration)
+      .call(this.arcTween, this.tau * this.props.percentComplete, this.arc())
+  }
+
+  arcTween(transition, newAngle, arc) {
+    transition.attrTween('d', d => {
+      const interpolate = d3.interpolate(d.endAngle, newAngle)
+      const newArc = d
+      return t => {
+        newArc.endAngle = interpolate(t)
+        return arc(newArc)
+      }
+    })
   }
 
   tau = Math.PI * 2
@@ -52,17 +88,16 @@ class ProgressArc extends Component {
   render() {
     return <div ref="arc" />
   }
-
-  propTypes = {
-    id: PropTypes.string,
-    height: PropTypes.number,
-    width: PropTypes.number,
-    innerRadius: PropTypes.number,
-    outerRadius: PropTypes.number,
-    backgroundColor: PropTypes.string,
-    foregroundColor: PropTypes.string,
-    percentComplete: PropTypes.number
-  }
+}
+ProgressArc.propTypes = {
+  id: PropTypes.string,
+  height: PropTypes.number,
+  width: PropTypes.number,
+  innerRadius: PropTypes.number,
+  outerRadius: PropTypes.number,
+  backgroundColor: PropTypes.string,
+  foregroundColor: PropTypes.string,
+  percentComplete: PropTypes.number
 }
 
 export default ProgressArc
