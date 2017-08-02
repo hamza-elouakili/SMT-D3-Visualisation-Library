@@ -1,43 +1,24 @@
-import React, { Component } from 'react'
-import ProgressArc from './ProgressArc'
+import React from 'react'
+import ProgressArcContainer from './ProgressArcContainer'
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { percentComplete: 0.3 }
-    this.randomPercent = this.randomPercent.bind(this)
-  }
-
-  componentDidMount() {
-    const percentage = Math.random()
-    this.setState({ percentComplete: percentage })
-  }
-
-  randomPercent() {
-    const percentage = Math.random()
-    this.setState({ percentComplete: percentage })
-  }
-
+class App extends React.Component {
   render() {
-    console.log(this.state.percentComplete)
-    const style = {}
+    const layout = {
+      display: 'flex',
+      flexWrap: 'wrap',
+      margin: 10
+    }
     return (
-      <div>
-        <a onClick={this.randomPercent}>Random percentage</a>
-        <ProgressArc
-          height={300}
-          width={300}
-          innerRadius={100}
-          outerRadius={110}
-          id="d3-arc"
-          backgroundColor="#e6e6e6"
-          foregroundColor="#00ff00"
-          percentComplete={this.state.percentComplete}
-          duration={2000}
-        />
+      <div style={layout}>
+        <ProgressArcContainer id="d3-arc1" />
       </div>
     )
   }
 }
 
 export default App
+
+// <div style={layout}>
+//         <ProgressArcContainer id="d3-arc1" />
+//         <ProgressArcContainer id="d3-arc2" />
+//       </div>

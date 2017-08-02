@@ -4,6 +4,10 @@ import PropTypes from 'prop-types'
 
 class ProgressArc extends Component {
   // displayName: "ProgressArc"
+  constructor(props) {
+    super(props)
+    this.tau = Math.PI * 2
+  }
 
   componentDidMount() {
     this.drawArc()
@@ -62,8 +66,6 @@ class ProgressArc extends Component {
       }
     })
   }
-
-  tau = Math.PI * 2
 
   arc() {
     return d3
