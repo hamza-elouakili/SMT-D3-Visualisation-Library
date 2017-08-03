@@ -35,7 +35,7 @@ class ProgressArcContainer extends Component {
       border: '1px solid black',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
+      justifyContent: 'space-around',
       alignItems: 'center',
       flexWrap: 'wrap',
       width: 200,
@@ -47,32 +47,24 @@ class ProgressArcContainer extends Component {
       width: 150
     }
 
-    const divStyle2 = {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontSize: 10,
-      marginBottom: 10
-    }
-
     const inputStyle = {
-      marginTop: 5
+      marginBottom: 15
     }
 
     return (
       <div style={divStyle}>
         <h2>Progress Arc</h2>
-        <div style={divStyle2}>
-          <span>Enter value </span>
-          <span>(0 & 100)</span>
-          <input
-            type="text"
-            // value={this.state.value}
-            onChange={this.handleChange}
-            style={inputStyle}
-          />
-        </div>
+        <h3>
+          {this.state.value * 100}%
+        </h3>
+        <input
+          type="range"
+          onChange={this.handleChange}
+          style={inputStyle}
+          min="0"
+          max="100"
+          step="1"
+        />
 
         <ProgressArc
           height={100}
