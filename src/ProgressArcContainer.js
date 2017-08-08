@@ -19,7 +19,8 @@ class ProgressArcContainer extends Component {
     if (isNaN(value)) {
       this.setState({ value: 0 })
     } else {
-      let p = parseFloat(value)
+      let p = parseInt(value)
+      p = Math.round(p)
       if (p >= 0 && p <= 100) {
         p = p / 100
         this.setState({ value: p })
@@ -55,15 +56,16 @@ class ProgressArcContainer extends Component {
       <div style={divStyle}>
         <h2>Progress Arc</h2>
         <h3>
-          {this.state.value * 100}%
+          {Math.round(this.state.value * 100)}%
         </h3>
         <input
           type="range"
           onChange={this.handleChange}
           style={inputStyle}
+          step="1"
+          value={this.state.value * 100}
           min="0"
           max="100"
-          step="1"
         />
 
         <ProgressArc
@@ -73,7 +75,7 @@ class ProgressArcContainer extends Component {
           outerRadius={45}
           id={this.props.id}
           backgroundColor="#e6e6e6"
-          foregroundColor="#00ff00"
+          foregroundColor="#fe9922"
           percentComplete={this.state.value}
           duration={2000}
         />

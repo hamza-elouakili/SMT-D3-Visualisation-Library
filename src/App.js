@@ -1,6 +1,7 @@
 import React from 'react'
 import ProgressArcContainer from './ProgressArcContainer'
 import BarChartContainer from './BarChartContainer'
+import LineChartContainer from './LineChartContainer'
 
 class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
       <div style={layout}>
         <ProgressArcContainer id="d3-arc1" />
         <BarChartContainer />
+        <LineChartContainer />
       </div>
     )
   }

@@ -31,7 +31,7 @@ class BarChart extends Component {
       .selectAll('rect')
       .data(this.props.data)
       .style('fill', '#fe9922')
-      .style('stroke', '#000000')
+      .style('stroke', '#e6e6e6')
       .attr('x', (d, i) => i * this.props.sizeDataScale)
       .attr('y', d => this.props.size[1] - yScale(d))
       .attr('height', d => yScale(d))
