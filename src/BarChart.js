@@ -23,14 +23,22 @@ class BarChart extends Component {
       .domain([0, dataMax])
       .range([0, this.props.size[1]])
 
-    select(node).selectAll('rect').data(this.props.data).enter().append('rect')
-
-    select(node).selectAll('rect').data(this.props.data).exit().remove()
+    select(node)
+      .selectAll('rect')
+      .data(this.props.data)
+      .enter()
+      .append('rect')
 
     select(node)
       .selectAll('rect')
       .data(this.props.data)
-      .style('fill', '#fe9922')
+      .exit()
+      .remove()
+
+    select(node)
+      .selectAll('rect')
+      .data(this.props.data)
+      .style('fill', '#b5a6eb')
       .style('stroke', '#e6e6e6')
       .attr('x', (d, i) => i * this.props.sizeDataScale)
       .attr('y', d => this.props.size[1] - yScale(d))

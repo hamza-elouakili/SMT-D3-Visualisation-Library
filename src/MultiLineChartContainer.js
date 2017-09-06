@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import PieChart from './PieChart'
+import MultLineChart from './MultiLineChart'
 
-class PieChartContainer extends Component {
+class MultiLineChartContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
       data: [10, 20, 30],
-      range: ['#dddaed', '#cbc5e2', '#b5a6eb']
+      range: ['#097054', '#FFDE00', '#fe9922']
     }
   }
 
@@ -25,12 +25,16 @@ class PieChartContainer extends Component {
 
     return (
       <div style={divStyle}>
-        <h2>Pie Chart</h2>
+        <h2>MultiLine Chart</h2>
 
-        <PieChart data={this.state.data} range={this.state.range} id="pie1" />
+        <MultLineChart
+          data={this.state.data}
+          range={this.state.range}
+          id="multiLineChart1"
+        />
       </div>
     )
   }
 }
 
-export default PieChartContainer
+export default MultiLineChartContainer

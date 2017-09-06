@@ -3,6 +3,7 @@ import ProgressArcContainer from './ProgressArcContainer'
 import BarChartContainer from './BarChartContainer'
 import LineChartContainer from './LineChartContainer'
 import PieChartContainer from './PieChartContainer'
+import MultiLineChartContainer from './MultiLineChartContainer'
 
 class App extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class App extends React.Component {
         <BarChartContainer />
         <LineChartContainer />
         <PieChartContainer />
+        <MultiLineChartContainer />
       </div>
     )
   }

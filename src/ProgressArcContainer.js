@@ -55,9 +55,7 @@ class ProgressArcContainer extends Component {
     return (
       <div style={divStyle}>
         <h2>Progress Arc</h2>
-        <h3>
-          {Math.round(this.state.value * 100)}%
-        </h3>
+        <h3>{Math.round(this.state.value * 100)}%</h3>
         <input
           type="range"
           onChange={this.handleChange}
@@ -75,7 +73,7 @@ class ProgressArcContainer extends Component {
           outerRadius={45}
           id={this.props.id}
           backgroundColor="#e6e6e6"
-          foregroundColor="#fe9922"
+          foregroundColor="#b5a6eb"
           percentComplete={this.state.value}
           duration={2000}
         />

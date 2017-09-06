@@ -7,7 +7,7 @@ class LineChartContainer extends Component {
     this.calculateAvg = this.calculateAvg.bind(this)
     this.state = {
       data: [
-        { value: 10, label: 'Mon' },
+        { value: 200, label: 'Mon' },
         { value: 50, label: 'Tues' },
         { value: 70, label: 'Wed' },
         { value: 100, label: 'Thur' },

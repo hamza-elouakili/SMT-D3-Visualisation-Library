@@ -143,7 +143,7 @@ class LineChart extends Component {
         return line(data)
       })
       .style('stroke-width', 1)
-      .style('stroke', '#fe9922')
+      .style('stroke', '#b5a6eb')
   }
   render() {
     return <div ref="line" />

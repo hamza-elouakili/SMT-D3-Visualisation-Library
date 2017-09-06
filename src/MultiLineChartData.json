@@ -1,0 +1,89 @@
+{
+  "Belgium": [
+    {
+      "Date": 1999,
+      "Earnings": "15",
+      "Views": "20"
+    },
+    {
+      "Date": 2008,
+      "Earnings": "42",
+      "Views": "115"
+    },
+    {
+      "Date": 2007,
+      "Earnings": "29",
+      "Views": "79"
+    },
+    {
+      "Date": 2009,
+      "Earnings": "346",
+      "Views": "324"
+    },
+    {
+      "Date": 2006,
+      "Earnings": "44",
+      "Views": "69"
+    },
+    {
+      "Date": 2010,
+      "Earnings": "424",
+      "Views": "503"
+    },
+    {
+      "Date": 2005,
+      "Earnings": "28",
+      "Views": "48"
+    },
+    {
+      "Date": 2011,
+      "Earnings": "413",
+      "Views": "603"
+    },
+    {
+      "Date": 2004,
+      "Earnings": "34",
+      "Views": "41"
+    },
+    {
+      "Date": 2012,
+      "Earnings": "313",
+      "Views": "517"
+    },
+    {
+      "Date": 2003,
+      "Earnings": "21",
+      "Views": "36"
+    },
+    {
+      "Date": 2013,
+      "Earnings": "513",
+      "Views": "615"
+    },
+    {
+      "Date": 2002,
+      "Earnings": "18",
+      "Views": "23"
+    },
+    {
+      "Date": 2014,
+      "Earnings": "471",
+      "Views": "766"
+    },
+    {
+      "Date": 2001,
+      "Earnings": "17",
+      "Views": "29"
+    },
+    {
+      "Date": 2015,
+      "Earnings": "119",
+      "Views": "181"
+    },
+    {
+      "Date": 2000,
+      "Earnings": "25",
+      "Views": "25"
+    }
+  ]
+}
