@@ -91,6 +91,7 @@ class ProgressArc extends Component {
     return <div ref="arc" />
   }
 }
+
 ProgressArc.propTypes = {
   id: PropTypes.string,
   height: PropTypes.number,

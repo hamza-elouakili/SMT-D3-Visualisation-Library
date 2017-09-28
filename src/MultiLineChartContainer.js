@@ -1,38 +1,39 @@
 import React, { Component } from 'react'
 import MultLineChart from './MultiLineChart'
+import data from './MultiLineChartData.json'
+import Container from './Container'
 
 class MultiLineChartContainer extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      data: [10, 20, 30],
-      range: ['#097054', '#FFDE00', '#fe9922']
-    }
   }
 
   render() {
-    const divStyle = {
-      border: '1px solid black',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      flexWrap: 'wrap',
-      width: 200,
-      height: 300,
-      marginRight: 10
-    }
-
     return (
-      <div style={divStyle}>
+      <Container>
         <h2>MultiLine Chart</h2>
-
+        <h3>Avg:</h3>
         <MultLineChart
-          data={this.state.data}
-          range={this.state.range}
+          data={data}
+          arrName="Belgium"
+          YItem1="Earnings"
+          YItem2="Views"
+          XItem="Date"
           id="multiLineChart1"
+          marginTop={10}
+          marginBottom={10}
+          marginLeft={5}
+          marginRight={5}
+          width="190"
+          height="120"
+          strokeYItem1="#b5a6eb"
+          strokeYItem2="#b5a6eb"
+          fillYItem1="none"
+          fillYItem2="none"
+          strokeWidthYItem1="4"
+          strokeWidthYItem2="2"
         />
-      </div>
+      </Container>
     )
   }
 }

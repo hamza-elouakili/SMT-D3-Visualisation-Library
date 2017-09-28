@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import BarChart from './BarChart'
+import Container from './Container'
 
 class BarChartContainer extends Component {
   constructor(props) {
@@ -34,18 +35,6 @@ class BarChartContainer extends Component {
   }
 
   render() {
-    const divStyle = {
-      border: '1px solid black',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      flexWrap: 'wrap',
-      width: 200,
-      height: 300,
-      marginRight: 10
-    }
-
     const inputStyle = {
       marginBottom: 10,
       position: 'relative',
@@ -58,11 +47,9 @@ class BarChartContainer extends Component {
     }
 
     return (
-      <div style={divStyle}>
+      <Container>
         <h2>Bar Chart</h2>
-        <h3 style={h3Style}>
-          Avg: {this.state.avg}
-        </h3>
+        <h3 style={h3Style}>Avg: {this.state.avg}</h3>
         <input
           style={inputStyle}
           type="text"
@@ -72,8 +59,12 @@ class BarChartContainer extends Component {
           data={this.state.data}
           sizeDataScale={100 / this.state.sizeData}
           size={[90, 90]}
+          width="100"
+          height="100"
+          fill="#b5a6eb"
+          stroke="#e6e6e6"
         />
-      </div>
+      </Container>
     )
   }
 }

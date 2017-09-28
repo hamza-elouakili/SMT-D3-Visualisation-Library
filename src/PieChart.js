@@ -20,19 +20,25 @@ class PieChart extends React.Component {
   draw() {
     var data = this.props.data
 
-    var width = 150,
-      height = 130,
+    var width = this.props.width,
+      height = this.props.height,
       radius = Math.min(width, height) / 2
 
     var color = d3.scaleOrdinal().range(this.props.range)
 
-    var arc = d3.arc().outerRadius(radius - 10).innerRadius(0)
+    var arc = d3
+      .arc()
+      .outerRadius(radius - 10)
+      .innerRadius(0)
 
     // var labelArc = d3.arc().outerRadius(radius - 40).innerRadius(radius - 40)
 
-    var pie = d3.pie().sort(null).value(function(d) {
-      return d
-    })
+    var pie = d3
+      .pie()
+      .sort(null)
+      .value(function(d) {
+        return d
+      })
 
     var svg = d3
       .select(this.refs.pie)
@@ -50,9 +56,12 @@ class PieChart extends React.Component {
       .append('g')
       .attr('class', 'arc')
 
-    g.append('path').attr('d', arc).style('fill', function(d) {
-      return color(d.data)
-    })
+    g
+      .append('path')
+      .attr('d', arc)
+      .style('fill', function(d) {
+        return color(d.data)
+      })
 
     // g
     //   .append('text')

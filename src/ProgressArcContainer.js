@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProgressArc from './ProgressArc'
+import Container from './Container'
 
 class ProgressArcContainer extends Component {
   constructor(props) {
@@ -32,17 +33,7 @@ class ProgressArcContainer extends Component {
 
   render() {
     console.log(this.state.percentComplete)
-    const divStyle = {
-      border: '1px solid black',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      flexWrap: 'wrap',
-      width: 200,
-      height: 300,
-      marginRight: 10
-    }
+
     const aStyle = {
       cursor: 'pointer',
       width: 150
@@ -53,7 +44,7 @@ class ProgressArcContainer extends Component {
     }
 
     return (
-      <div style={divStyle}>
+      <Container>
         <h2>Progress Arc</h2>
         <h3>{Math.round(this.state.value * 100)}%</h3>
         <input
@@ -77,7 +68,7 @@ class ProgressArcContainer extends Component {
           percentComplete={this.state.value}
           duration={2000}
         />
-      </div>
+      </Container>
     )
   }
 }
