@@ -11,7 +11,7 @@ class LineChartContainer extends Component {
         { value: 10, label: 'Mon' },
         { value: 20, label: 'Tue' },
         { value: 30, label: 'Wed' },
-        { value: 40, label: 'Thu' },
+        { value: 50, label: 'Thu' },
         { value: 20, label: 'Fri' },
         { value: 50, label: 'Sat' },
         { value: 90, label: 'Sun' },
@@ -19,7 +19,7 @@ class LineChartContainer extends Component {
         { value: 70, label: 'Tue' },
         { value: 90, label: 'Wed' },
         { value: 100, label: 'Thu' },
-        { value: 140, label: 'Fri' },
+        { value: 150, label: 'Fri' },
         { value: 120, label: 'Sat' },
         { value: 190, label: 'Sun' }
       ],
@@ -54,13 +54,19 @@ class LineChartContainer extends Component {
           data={this.state.data}
           id="linechart-1"
           marginTop={0}
-          marginBottom={20}
+          marginBottom={30}
           marginLeft={30}
           marginRight={0}
-          width="200"
+          width="220"
           height="160"
           stroke="#b5a6eb"
-          strokeWidth="2"
+          strokeWidth="3"
+          strokeDashX="3"
+          strokeDashY="2"
+          TicksY="full"
+          TicksX="full"
+          showXAxis="yes"
+          showYAxis="yes"
         />
       </Container>
     )

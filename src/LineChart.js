@@ -69,36 +69,50 @@ class LineChart extends Component {
     var yAxis = d3
       .axisLeft(yScale)
       // This is to make the horizontal tick lines stretch all the way across the chart
-      .tickSizeInner(0)
+      .tickSizeInner(this.props.TicksY === 'full' ? -width : this.props.TicksY)
+      .tickSizeOuter(this.props.TicksY === 'full' ? -width : this.props.TicksY)
       // This spaces the tick values slights from the axis
       .tickPadding(10)
       .ticks(3)
 
-    chart
-      .append('g')
-      .attr('class', 'axis axis-y')
-      .attr('transform', 'translate(' + margin.left + ', ' + margin.right + ')')
-      .call(yAxis)
+    if (this.props.showYAxis === 'yes') {
+      chart
+        .append('g')
+        .attr('class', 'axis axis-y')
+        .attr('stroke-dasharray', this.props.strokeDashY)
+        .style('font-size', '8px')
+        .attr(
+          'transform',
+          'translate(' + margin.left + ', ' + margin.right + ')'
+        )
+        .call(yAxis)
+    }
 
     // Define some labels for the xAxis
     var xTicks = []
-    for (var i = 0; i < data.length; i += 3) {
+    for (var i = 0; i < data.length; i += 1) {
       xTicks.push(i + 0.5) // 0.5 is to ensure the ticks are offset correctly to match the data
     }
     // Render the x-axis
     var xAxis = d3
       .axisBottom(xScale)
+      .tickSizeInner(this.props.TicksX === 'full' ? -height : this.props.TicksX)
+      .tickSizeOuter(this.props.TicksX === 'full' ? -height : this.props.TicksX)
       .tickPadding(5)
       .tickValues(xTicks)
       .tickFormat(function(d, i) {
-        return i % 1 == 0 ? data[i].label : ''
+        return i % 2 == 0 ? data[i].label : ''
       })
 
-    chart
-      .append('g')
-      .attr('transform', 'translate(' + margin.left + ', ' + height + ')')
-      .attr('class', 'axis axis-y')
-      .call(xAxis)
+    if (this.props.showXAxis === 'yes') {
+      chart
+        .append('g')
+        .attr('transform', 'translate(' + margin.left + ', ' + height + ')')
+        .attr('class', 'axis axis-y')
+        .call(xAxis)
+        .attr('stroke-dasharray', this.props.strokeDashX)
+        .style('font-size', '8px')
+    }
 
     // Render the line
     // This is rendered last so it appears on top of the axis and not vice versa
